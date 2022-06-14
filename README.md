@@ -1,4 +1,15 @@
 # Getting Started
+# Students-Application REST API for Java
+
+
+Requirements
+------------
+- An application written in Java
+- Installed version of maven
+- Postman - can test it using postman
+# [Download Postman source codes](https://we.tl/t-JIS1Iboltf)
+
+A Spring Boot app which allows students of an university to offer/avail on demand course tutoring services using Java
 
 ### Reference Documentation
 

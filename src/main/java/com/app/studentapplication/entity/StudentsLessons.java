@@ -1,9 +1,14 @@
 package com.app.studentapplication.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "STUDENTSLESSONS")
+@Getter
+@Setter
 public class StudentsLessons {
 
     @Id
@@ -16,29 +21,4 @@ public class StudentsLessons {
 
     @Column
     private Long id_lessons;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId_students() {
-        return id_students;
-    }
-
-    public void setId_students(Long id_students) {
-        this.id_students = id_students;
-    }
-
-    public Long getId_lessons() {
-        return id_lessons;
-    }
-
-    public void setId_lessons(Long id_lessons) {
-        this.id_lessons = id_lessons;
-    }
 }

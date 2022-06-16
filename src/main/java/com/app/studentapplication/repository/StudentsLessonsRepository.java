@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface StudentsLessonsRepository extends JpaRepository<StudentsLessons,Long> {
+public interface StudentsLessonsRepository extends BaseRepository<StudentsLessons>{
 
     @Modifying
     @Query("delete from StudentsLessons s where s.id_lessons =:id_lessons and s.id_students =:id_students")

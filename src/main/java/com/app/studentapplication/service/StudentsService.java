@@ -7,8 +7,8 @@ import com.app.studentapplication.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,14 +21,13 @@ public class StudentsService {
 
     public List<Students> getAllStudent()
     {
-        List<Students> students = new ArrayList<Students>();
-        studentRepository.findAll().forEach(student -> students.add(student));
+        List<Students> students = studentRepository.findAll();
         return students;
     }
 
     public Students save(StudentsSaveRequestDto studentsSaveRequestDto) {
             students = studentsConverter.convertToStudents(studentsSaveRequestDto);
-            students = studentRepository.save(students);
+            students = (Students) studentRepository.save(students);
         return students;
     }
 
@@ -37,13 +36,14 @@ public class StudentsService {
         students.setName(studentsSaveRequestDto.getName());
         students.setSurname(studentsSaveRequestDto.getSurname());
         students.setStudentImage(studentsSaveRequestDto.getStudentImage());
-        students = studentRepository.save(students);
+        students = (Students) studentRepository.save(students);
         return students;
     }
 
 
 
     public Students findById(Long id){
-        return studentRepository.findById(id).get();
+        Optional byId = studentRepository.findById(id);
+        return (Students) byId.get();
     }
 }
